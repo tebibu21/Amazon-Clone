@@ -1,0 +1,240 @@
+.header__container {
+  background-color: #131921;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  height: 70px;
+  color: white;
+  gap: 15px;
+}
+
+/* Logo + Delivery */
+.logo__container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-width: 250px;
+}
+
+.logo__container img {
+  width: 100px;
+  cursor: pointer;
+}
+
+.delivery {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.delivery p {
+  font-size: 12px;
+  margin: 0;
+  color: #ccc;
+}
+
+.delivery span {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Search bar */
+.search {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  max-width: 700px;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.search select {
+  padding: 10px;
+  border: none;
+  background-color: #f3f3f3;
+  font-weight: 500;
+  outline: none;
+}
+
+.search input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  font-size: 15px;
+  outline: none;
+}
+
+.search__icon {
+  background-color: #febd69;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search__icon:hover {
+  background-color: #f3a847;
+}
+
+/* Orders, Language, Cart */
+.order__container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-width: 350px;
+}
+
+.order__container a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+}
+
+.order__container a span {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.language {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.language select {
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-weight: bold;
+}
+
+.language img {
+  width: 25px;
+  height: auto;
+}
+
+/* Cart */
+.cart {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.cart__count {
+  position: absolute;
+  top: 5px;
+  left: 16px;
+  background-color: #f08804;
+  color: #111;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+.order__container a:hover,
+.delivery:hover,
+.logo__container a:hover,
+.lower__container ul li:hover{
+    border: 1px solid white;
+    border-radius: 3px;
+}
+
+/* Lower Header (Navigation bar) */
+.lower__container {
+  background-color: #232f3e;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  height: 45px;
+  font-size: 14px;
+}
+
+/* UL styling */
+.lower__menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+}
+
+/* LI items */
+.lower__menu li {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  border-radius: 3px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* Hover effect like Amazon */
+.lower__menu li:hover {
+  background-color: #37475a;
+}
+
+/* "All" menu item (first one with icon) */
+.menu__all {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+/* Responsive scroll if too many items */
+.lower__menu::-webkit-scrollbar {
+  height: 6px;
+}
+.lower__menu::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 10px;
+}
+@media screen and (max-width: 576px) {
+  /* Stack header items vertically on small screens */
+  .header__container {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  /* Make the logo section smaller and centered */
+  .logo__container {
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Hide the language dropdown */
+  .language {
+    display: none;
+  }
+
+  /* Shrink search bar width */
+  .search {
+    width: 100%;
+  }
+
+  /* In the lower header: show only the menu icon (first item) */
+  .lower__container ul li:not(:first-child) {
+    display: none;
+  }
+
+  /* Center the lower header */
+  .lower__container {
+    justify-content: center;
+  }
+}
