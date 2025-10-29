@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import './App.css'
 import Header from './components/Header/Header'
+import CarouselEffect from './components/carousel/CarouselEffect'
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Category from './components/Category/Category';
 
 
 function App() {
@@ -9,6 +12,8 @@ function App() {
   return (
     <>
       <Header />
+      <CarouselEffect />
+      <Category />
     </>
   )
 }
