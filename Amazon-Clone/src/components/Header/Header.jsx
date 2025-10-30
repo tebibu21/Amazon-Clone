@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 import classes from "./Header.module.css";
 import { FaSearch } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
@@ -12,12 +13,12 @@ const Header = () => {
       <header className={classes.header__container}>
         {/* Logo + Delivery */}
         <div className={classes.logo__container}>
-          <a href="#">
+          <Link to="/">
             <img
               src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
               alt="amazon logo"
             />
-          </a>
+          </Link>
 
           <div className={classes.delivery}>
             <FaLocationDot />
@@ -51,20 +52,20 @@ const Header = () => {
             </select>
           </div>
 
-          <a href="#">
+          <Link to="/Auth">
             <p>Hello, Sign In</p>
             <span>Account & Lists</span>
-          </a>
+          </Link>
 
-          <a href="#">
+          <Link to="/orders">
             <p>Returns</p>
             <span>& Orders</span>
-          </a>
+          </Link>
 
-          <a href="#" className={classes.cart}>
+          <Link to="/cart" className={classes.cart}>
             <IoCartOutline size={45} />
             <span className={classes.cart__count}>0</span>
-          </a>
+          </Link>
         </div>
       </header>
       <LowerHeader />
