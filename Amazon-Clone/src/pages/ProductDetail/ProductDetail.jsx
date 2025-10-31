@@ -32,7 +32,7 @@ function ProductDetail() {
         <Loder />
       ) : (
         <section className={classes.detail_container}>
-          <ProductCard product={product} />
+          <ProductCard product={product} flex={true} renderDesc={true} />
         </section>
       )}
     </LayOut>
