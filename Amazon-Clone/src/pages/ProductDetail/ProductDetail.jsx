@@ -4,27 +4,37 @@ import LayOut from "../../components/LayOut/LayOut";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { productUrl } from "../../Api/endPoints";
-import Loader from "../../components/Loader/Loder";
+import Loder from "../../components/Loader/Loder";
 import ProductCard from "../../components/Product/ProductCard";
 
 function ProductDetail() {
   const { productId } = useParams();
-  const [product, setProduct] = useState([]);
+  const [product, setProduct] = useState({});
+  const [isloading, setisLoading] = useState(false);
 
   useEffect(() => {
+    setisLoading(true);
     axios
       .get(`${productUrl}/products/${productId}`)
       .then((res) => {
         setProduct(res.data);
+        setisLoading(false);
       })
       .catch((err) => {
         console.log(err);
+        setisLoading(false);
       });
-  }, [productId]); // include productId in dependency array
+  }, [productId]);
 
   return (
     <LayOut>
-      <ProductCard product={product} />
+      {isloading ? (
+        <Loder />
+      ) : (
+        <section className={classes.detail_container}>
+          <ProductCard product={product} />
+        </section>
+      )}
     </LayOut>
   );
 }
