@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import {Link} from 'react-router-dom';
 import classes from "./Header.module.css";
 import { FaSearch } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoCartOutline } from "react-icons/io5";
 import LowerHeader from "./LowerHeader";
+import { DataContext } from "../DataProvider/DataProvider";
 
 
 const Header = () => {
+  const [{basket},dispatch]= useContext(DataContext)
+
   return (
     <>
       <header className={classes.header__container}>
@@ -64,7 +67,7 @@ const Header = () => {
 
           <Link to="/cart" className={classes.cart}>
             <IoCartOutline size={45} />
-            <span className={classes.cart__count}>0</span>
+            <span className={classes.cart__count}>{basket.length}</span>
           </Link>
         </div>
       </header>
