@@ -10,9 +10,11 @@ import { DataContext } from "../DataProvider/DataProvider";
 
 const Header = () => {
   const [{basket},dispatch]= useContext(DataContext)
-
+  const totalItem = basket?.reduce((amount,item)=>{
+    return item.amount + amount
+  },0)
   return (
-    <>
+    <section className={classes.fixed}>
       <header className={classes.header__container}>
         {/* Logo + Delivery */}
         <div className={classes.logo__container}>
@@ -67,12 +69,12 @@ const Header = () => {
 
           <Link to="/cart" className={classes.cart}>
             <IoCartOutline size={45} />
-            <span className={classes.cart__count}>{basket.length}</span>
+            <span className={classes.cart__count}>{totalItem}</span>
           </Link>
         </div>
       </header>
       <LowerHeader />
-    </>
+    </section>
   );
 };
 
