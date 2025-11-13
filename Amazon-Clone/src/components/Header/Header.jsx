@@ -6,10 +6,12 @@ import { FaLocationDot } from "react-icons/fa6";
 import { IoCartOutline } from "react-icons/io5";
 import LowerHeader from "./LowerHeader";
 import { DataContext } from "../DataProvider/DataProvider";
+import {auth} from "../../Utility/firebase"
 
 
 const Header = () => {
-  const [{basket},dispatch]= useContext(DataContext)
+  const [{ basket, user }, dispatch] = useContext(DataContext);
+
   const totalItem = basket?.reduce((amount,item)=>{
     return item.amount + amount
   },0)
@@ -57,9 +59,20 @@ const Header = () => {
             </select>
           </div>
 
-          <Link to="/Auth">
-            <p>Hello, SignIn</p>
-            <span>Account & Lists</span>
+          <Link to={!user && "/Auth"}>
+            <div>
+              {user ? (
+                <>
+                  <p>Hello {user?.email?.split("@")[0]}</p>
+                  <span onClick={()=>auth.signOut()}>Sign Out</span>
+                </>
+              ) : (
+                <>
+                  <p>Hello, Sign In</p>
+                  <span>Account & Lists</span>
+                </>
+              )}
+            </div>
           </Link>
 
           <Link to="/orders">
